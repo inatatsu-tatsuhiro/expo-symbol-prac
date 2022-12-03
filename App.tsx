@@ -1,13 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationProp,
+} from '@react-navigation/native-stack'
+import { StyleSheet } from 'react-native'
+import { Provider as PaperProvider } from 'react-native-paper'
+import { MainRouter } from './src/Router/MainRouter'
+import { UserRouter } from './src/Router/UserRouter'
+import { RootRouter } from './src/Router/RootRouter'
+
+export type RootStackParamList = {
+  Main: undefined
+  Compose: undefined
+}
+
+export type RootStackNavProp<T extends keyof RootStackParamList> =
+  NativeStackNavigationProp<RootStackParamList, T>
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <PaperProvider>
+      <NavigationContainer>
+        {/* <MainRouter /> */}
+        <RootRouter />
+      </NavigationContainer>
+    </PaperProvider>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -17,4 +36,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+})
