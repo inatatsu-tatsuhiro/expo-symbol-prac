@@ -7,8 +7,6 @@ import {
 import { StyleSheet } from 'react-native'
 import { Provider as PaperProvider } from 'react-native-paper'
 import { MainRouter } from './src/Router/MainRouter'
-import { UserRouter } from './src/Router/UserRouter'
-import { RootRouter } from './src/Router/RootRouter'
 
 export type RootStackParamList = {
   Main: undefined
@@ -22,8 +20,7 @@ export default function App() {
   return (
     <PaperProvider>
       <NavigationContainer>
-        {/* <MainRouter /> */}
-        <RootRouter />
+        <MainRouter />
       </NavigationContainer>
     </PaperProvider>
   )
